@@ -38,9 +38,9 @@ dossier du projet avec un code minimal selon le type du projet (C, Latex, python
 		echo "Syntaxes d'utilisations: "
 		echo " commande initdev : -help , -Name , -Syntax , -args , -author ] "
 		echo " syntaxe: initdev [nom], [nom/langage/licence],[nom/licence/langage],[nom/langage/licence/git],[nom/licence/langage/git]" 					echo "attenstion:le nom du projet doit etre mis comme 1er argument dans toute les syntaxes
- la création d’un dépôt git sans préciser le langage du projet,erreur "
+ la création d’un dépôt git sans préciser le langage du projet,erreur ";;
 -args)
-;; 
+ 
 		echo "Arguments : 
 
 -help		affiche l'aide
@@ -68,7 +68,7 @@ esac
 		touch "$1"/LICENSE  
 		touch "$1"/makefile 
 		fi
-	else
+
 #le nombre d'arguments=2 /Creation d'un projet avec langage (c,py,c++,latex,BEAMER) ou avec un licence  
 	if [ $# -eq 2 ];then
 case   "$2"  in 
@@ -131,8 +131,8 @@ esac
 		elif [ $# -eq 3 ];then 
 		ar2="$2"
 		ar3="$3"
-case "$2" 
-$3 )
+case "$2" in 
+"$3" )
 					echo " repetitions d'arguments interdits "
 ;;
 -GPL) ar2="$3"  ar3="$2"
@@ -150,8 +150,8 @@ $3 )
 -Py ) ar2="$3"  ar3="$2"
 ;;
 -Latex) ar2="$3"  ar3="$2"
-:: 
--BEAMER) ar2="$3"  ar3="$2"   
+;;
+-BEAMER) ar2="$3"  ar3="$2" ;;  
 *) echo "erreur voir initdev -help plus d'information"					
 esac  
 				mkdir "$1" ; 
@@ -263,7 +263,7 @@ case "$3" in
 ;;
 -BEAMER) ar2="$3"
 ;;
--git)	ar4="$3"		
+-git)	ar4="$3" ;;		
 esac 
 case "$4" in 
 -C) ar2="$4"
