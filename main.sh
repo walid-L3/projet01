@@ -1,5 +1,4 @@
-# !/ bin / bash 
-#test si le nombre d'arguments est entre 1 et 4 case 
+# !/ bin / bash  
 if [ $# -gt 0 ] && [ $# -lt 5 ];then 
 case "$1" in   
 -BEAMER ) echo "Erreur: le premier argument doit etre le nom du projet voir initdev -help pour plus d'informations sur l'application " ;;
