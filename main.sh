@@ -3,7 +3,7 @@ if [ $# -gt 0 ] && [ $# -lt 5 ];then
 case "$1" in   
 -BEAMER ) echo "Erreur: le premier argument doit etre le nom du projet voir initdev -help pour plus d'informations sur l'application " ;;
 -Latex) echo "Erreur: le premier argument doit etre le nom du projet voir initdev -help pour plus d'informations sur l'application " ;;
-echo "Erreur: le premier argument doit etre le nom du projet voir initdev -help pour plus d'informations sur l'application " ;;
+
 -Py) echo "Erreur: le premier argument doit etre le nom du projet voir initdev -help pour plus d'informations sur l'application " ;;
 -C++) echo "Erreur: le premier argument doit etre le nom du projet voir initdev -help pour plus d'informations sur l'application " ;;
 -Cp) echo "Erreur: le premier argument doit etre le nom du projet voir initdev -help pour plus d'informations sur l'application " ;;
