@@ -1,46 +1,54 @@
-# !/ bin / bash
-if [ $# -gt 0 ] && [ $# -lt 5 ];then #test si le nombre d'arguments est entre 1 et 5
-if [ "$1" = "-GPL" ] || [ "$1" = "-MIT" ] || [ "$1" = "-git" ] || [ "$1" = "-C" ] || [ "$1" = "-Cpp" ] || [ "$1" = "-C++" ] || [ "$1" = "-Py" ] || [ "$1" = "-Latex" ] || [ "$1" = "-BEAMER" ] ;then
-echo "Erreur: le premier argument doit etre le nom du projet voir initdev -help pour plus d'informations sur l'application "
+# !/ bin / bash 
+#test si le nombre d'arguments est entre 1 et 4 case 
+if [ $# -gt 0 ] && [ $# -lt 5 ];then 
+case "$1" in   
+-BEAMER ) echo "Erreur: le premier argument doit etre le nom du projet voir initdev -help pour plus d'informations sur l'application " ;;
+-Latex) echo "Erreur: le premier argument doit etre le nom du projet voir initdev -help pour plus d'informations sur l'application " ;;
+echo "Erreur: le premier argument doit etre le nom du projet voir initdev -help pour plus d'informations sur l'application " ;;
+-Py) echo "Erreur: le premier argument doit etre le nom du projet voir initdev -help pour plus d'informations sur l'application " ;;
+-C++) echo "Erreur: le premier argument doit etre le nom du projet voir initdev -help pour plus d'informations sur l'application " ;;
+-Cp) echo "Erreur: le premier argument doit etre le nom du projet voir initdev -help pour plus d'informations sur l'application " ;;
+-c) echo "Erreur: le premier argument doit etre le nom du projet voir initdev -help pour plus d'informations sur l'application " ;;
+-git) echo "Erreur: le premier argument doit etre le nom du projet voir initdev -help pour plus d'informations sur l'application " ;;
+-MIT) echo "Erreur: le premier argument doit etre le nom du projet voir initdev -help pour plus d'informations sur l'application " ;;
+-GPL) echo "Erreur: le premier argument doit etre le nom du projet voir initdev -help pour plus d'informations sur l'application " ;;
+esac
 else
-if [ $# -eq 0 ];then  #test si le nombre d'arguments est égal à 0 , on retourne erreur si vrai
-	echo "Expected arguments, please check the help : initdev –help" 
-	elif [ $# -eq 1 ];then  #test si le nombre d'arguments est égal à 1 
+#si le nombre d'arguments=0 ,
+if [ $# -eq 0 ];then   
+	echo "Expected arguments, please check the help : initdev –help"
+#si le nombre d'arguments =1 
+	elif [ $# -eq 1 ];then   
 	
 	
-	
-	if [ "$1" = "-Name" ];then # ajout de la commande -Name
-		echo " 	Nom de l'application : initdev ";
-		echo " Description : cette application  permet de créer un projet initialisé avec un depot git en greffant un fichier de base , une lisence , un makefile et un .gitignore en choisissant un nom  un language , une liscence en entrées : voir initdev -args pour voir les arguments proposé par l'application ";
-		elif [ "$1" = "-help" ];then # ajout de la commande -help
+# ajout de la commande -help -Name -Syntax -args -author
+case "$1" in 	        
+-help)
 		echo "Arguments:" ;
 		echo "-Name : Afficher le nom de l’application et une petite description."
 		echo "-Syntax : Afficher la syntaxe d’utilisation de la commande initdev."
 		echo "-args : Lister les arguments et donner une description de chaque argument."
-		echo "-author : Afficher le nom et l’email de l’auteur de l’application." 
-		elif [ "$1" = "-Syntax" ];then # ajout de la commande -Syntax
+		echo "-author : Afficher le nom et l’email de l’auteur de l’application."
+;;
+-Name) 		
+		echo " initdev: organisation de son projet et appliquer un ensemble de pré-configurations comme : l’initialisation d’un dépôt
+git, l’ajout d’un fichier .gitignore, la désignation d’une licence, la création d’un premier fichier source dans le
+dossier du projet avec un code minimal selon le type du projet (C, Latex, python ou autre), etc. ";
+;; 
+-Syntax) 
 		echo "Syntaxes d'utilisations: "
-		echo " syntaxe N°0 : initdev [commande : -help , -Name , -Syntax , -args , -author ] "
-		echo "1ere syntaxe: initdev [nom] "
-		echo "2eme syntaxe: initdev [nom] [langage/licence]"
-		echo "3eme syntaxe: initdev [nom] [langage/licence/git] [langage/licence/git]"
-		echo "4eme syntaxe: initdev [nom] [langage/licence/git] [langage/licence/git] [langage/licence/git]"
-		echo "Conditions d'utilisations:
-1) Si vous voulez créer un projet , le nom du projet doit etre mis comme 1er argument dans toute les syntaxes
-2) Vous ne pouvez pas ecrire le meme argument plus d'une fois dans la meme commande
-3) Vous pouvez créer un projet sans preciser ni license ni langage voir 1ere syntaxe 
-2) vous pouvez créer un projet avec une licence que vous voulez sans preciser le langage voir 2eme syntaxe
-3) vous pouvez créer un projet avec une licence et un langage spécifié voir 3eme syntaxe ( l'ordre n'est pas important)
-4) vous pouvez créer un projet avec un depot git mais vous devez preciser le langage voir 3eme syntaxe (l'ordre n'est pas important )
-5) vous pouvez créer un projet avec une licence , un langage specifique plus un depot initiale git voir 4eme syntaxe ( l'ordre n'est pas important )   "
-		elif [ "$1" = "-args" ];then # ajout de la commande -args
+		echo " commande initdev : -help , -Name , -Syntax , -args , -author ] "
+		echo " syntaxe: initdev [nom], [nom/langage/licence],[nom/licence/langage],[nom/langage/licence/git],[nom/licence/langage/git]" 					echo "attenstion:le nom du projet doit etre mis comme 1er argument dans toute les syntaxes
+ la création d’un dépôt git sans préciser le langage du projet,erreur "
+-args)
+;; 
 		echo "Arguments : 
-* signifie que c'est un argument unique ( vous ne pouvez pas utiliser d'autres arguments en meme temps )
--help	*	affiche l'aide
--Name	*	affiche le nom de l'application 
--Syntax	*	affiche les syntaxes d'utilisation de la commande
--args	*	affiche tous les arguments possible pour l'application
--author	*	affiche le nom et l'e-mail de l'auteur de l'application
+
+-help		affiche l'aide
+-Name		affiche le nom de l'application 
+-Syntax		affiche les syntaxes d'utilisation de la commande
+-args		affiche tous les arguments possible pour l'application
+-author		affiche le nom et l'e-mail de l'auteur de l'application
 -C		Projet en langage C
 -Py		Projet en langage Python
 -Cpp ou -C++	Projet en langage C++ 
@@ -48,99 +56,146 @@ if [ $# -eq 0 ];then  #test si le nombre d'arguments est égal à 0 , on retourn
 -BEAMER		Projet de rédaction en BEAMER
 -GPL		Projet avec une licence GENERAL PUBLIC LICENSE
 -MIT		Projet avec une licence MIT
--git		ajoute un fichier .gitignore et un depot git dans le repertoire du projet"
-		elif [ "$1" = "-author" ];then # ajout de la commande -author
+-git		ajoute un fichier .gitignore et un depot git dans le repertoire du projet" 
+;;
+-author) 
 		echo "Auteur: LARKAT HOUSSAMEDDINE "
 		echo "E-mail: lerkathoussam@gmail.com"
-		else # Creation d'un projet sans licence ou langage specifique
+esac  
+		else
+# Creation d'un projet 1 argument [nom-prijet] 
 		mkdir "$1"
 		touch "$1"/main
 		touch "$1"/LICENSE  
 		touch "$1"/makefile 
 		fi
 	else
-	if [ $# -eq 2 ];then #test si le nombre d'arguments est égal à 2 
-		if [ "$2" = "-C" ];then # Creation d'un projet en langage C sans licence specifique
+#le nombre d'arguments=2 /Creation d'un projet avec langage (c,py,c++,latex,BEAMER) ou avec un licence  
+	if [ $# -eq 2 ];then
+case   "$2"  in 
+-C) 
 			mkdir "$1" ;
 			cp  home/"$USER"/.initdev/sources/main.c "$1"/ 
-			touch "$1"/LICENSE ;
-			touch "$1"/Makefile ;
-			elif [ "$2" = "-CPP" ] || [ "$2" = "-C++" ] ;then # Creation d'un projet en langage C++ sans licence specifique
+			touch "$1"/LICENSE 
+			touch "$1"/Makefile 
+;;
+-CPP) 
 				mkdir "$1" ;
 				cp home/"$USER"/.initdev/sources/main.cpp "$1"/ 
-				touch "$1"/LICENSE ;
-				touch "$1"/Makefile ;
-			elif [ "$2" = "-Py" ];then # Creation d'un projet en langage Python sans licence spécifique
+				touch "$1"/LICENSE 
+				touch "$1"/Makefile 
+;;
+-c++)
+mkdir "$1" ;
+				cp home/"$USER"/.initdev/sources/main.cpp "$1"/ 
+				touch "$1"/LICENSE 
+				touch "$1"/Makefile
+;;
+-Py)
 				mkdir "$1" ;
 				cp /home/"$USER"/.initdev/sources/main.py "$1"/ 
-				touch "$1"/LICENSE ;
-				touch "$1"/Makefile ;
-			elif [ "$2" = "-Latex" ];then  # Creation d'un Projet de rédaction en Latex sans licence spécifique
+				touch "$1"/LICENSE 
+				touch "$1"/Makefile 
+;;
+-Latex)
 				mkdir "$1" ;
 				cp /home/"$USER"/.initdev/sources/latexMin.tex "$1"/
 				mv "$1"/latexMin.tex "$1"/Main.tex
-				touch "$1"/LICENSE ;
-				touch "$1"/Makefile ;
-			elif [ "$2" = "-BEAMER" ];then # Creation d'un Projet de rédaction en BEAMER sans licence spécifique
+				touch "$1"/LICENSE 
+				touch "$1"/Makefile 
+;;
+-BEAMER)
 				mkdir "$1" ;
 				cp /home/"$USER"/.initdev/sources/beamer.tex "$1"/
 				mv "$1"/beamer.tex "$1"/Main.tex
-				touch "$1"/LICENSE ;
-				touch "$1"/Makefile ;
-			elif [ "$2" = "-GPL" ];then # Creation d'un Projet avec une licence GPL sans un langage spécifique
+				touch "$1"/LICENSE 
+				touch "$1"/Makefile
+;; 
+-GPL)
 				mkdir "$1" ; 
 				touch "$1"/main ;
 				cp /home/"$USER"/.initdev/licenses/GPL "$1"/
 				mv "$1"/GPL "$1"/LICENSE
-				touch "$1"/Makefile ;
-			elif [ "$2" = "-MIT" ];then # Creation d'un Projet avec une licence MIT sans un langage spécifique
+				touch "$1"/Makefile 
+;;
+-MIT)
 				mkdir "$1" ; 
 				touch "$1"/main ;
 				cp /home/"$USER"/.initdev/licenses/MIT "$1"/
 				mv "$1"/MIT "$1"/LICENSE
-				touch "$1"/Makefile ;
-			fi 
-			
-		elif [ $# -eq 3 ];then #test si le nombre d'arguments est égal à 3 , le but des commandes suivantes c'est de ré-arranger les arguments pour ne pas trops saturer le script ,on garde toujours le même ordre nom > langage >licence/-git  dans l'algorithme sans qu'on oblige l'utilisateur a respecter l'ordre , arg2: represente le langage , arg3: la licence ou -git
-		arg2="$2"
-		arg3="$3"
-				if [ "$2" = "$3" ];then
+				touch "$1"/Makefile 
+;;
+*) echo "erreur voir -help" 
+;;	
+esac  
+#test si le nombre d'arguments est égal à 3 , le but des commandes suivantes c'est de ré-arranger les arguments pour ne pas trops saturer le script ,on garde toujours le même ordre nom > langage >licence/-git  dans l'algorithme sans qu'on oblige l'utilisateur a respecter l'ordre , arg2: represente le langage , arg3: la licence ou -git			
+		elif [ $# -eq 3 ];then 
+		ar2="$2"
+		ar3="$3"
+case "$2" 
+$3 )
 					echo " repetitions d'arguments interdits "
-					elif [ "$2" = "-GPL" ] || [ "$2" = "-MIT" ] || [ "$2" = "-git" ] || [ "$3" = "-C" ] || [ "$3" = "-Cpp" ] || [ "$3" = "-C++" ] || [ "$3" = "-Py" ] || [ "$3" = "-Latex" ] || [ "$3" = "-BEAMER" ]  ;then
-					arg2="$3"
-					arg3="$2"
-				fi 
-				mkdir "$1" ; #on crée un dossier d'abord mais on le supprime dès qu'il y a une erreur après , le but et toujours ne pas saturer le script , on cree toujours un dossier et a chaque etape on ajoute un fichier qui depend des arguments en entrées , si il ya un erreur le script supprime automatique le dossier deja crée 
-				if [ "$arg2" = "-C" ];then 
-				
-					cp  /home/"$USER"/.initdev/sources/main.c "$1"/ 
-					elif [ "$arg2" = "-Cpp" ] || [ "$arg2" = "-C++" ];then
-						cp /home/"$USER"/.initdev/sources/main.cpp "$1"/
-					elif [ "$arg2" = "-Py" ];then
-						cp /home/"$USER"/.initdev/sources/main.py "$1"/
-					elif [ "$arg2" = "-Latex" ];then
+;;
+-GPL) ar2="$3"  ar3="$2"
+;;
+-MIT ) ar2="$3"  ar3="$2"
+;;
+-git ) ar2="$3"  ar3="$2"
+;;
+-C )  ar2="$3"  ar3="$2"
+;;
+-Cpp) ar2="$3"  ar3="$2"
+;;
+-C++) ar2="$3"  ar3="$2"
+;;
+-Py ) ar2="$3"  ar3="$2"
+;;
+-Latex) ar2="$3"  ar3="$2"
+:: 
+-BEAMER) ar2="$3"  ar3="$2"   
+*) echo "erreur voir initdev -help plus d'information"					
+esac  
+				mkdir "$1" ; 
+case  "$ar2" in 
+-C) 				
+cp  /home/"$USER"/.initdev/sources/main.c "$1"/ 
+;;
+-Cpp) 
+cp /home/"$USER"/.initdev/sources/main.cpp "$1"/
+;;
+-C++) cp /home/"$USER"/.initdev/sources/main.cpp "$1"/
+;;
+-Py)
+cp /home/"$USER"/.initdev/sources/main.py "$1"/
+;;
+-Latex)						
+cp /home/"$USER"/.initdev/sources/latexMin.tex "$1"/
+mv "$1"/latexMin.tex "$1"/Main.tex
+;;
+-BEAMER)
 						
-						cp /home/"$USER"/.initdev/sources/latexMin.tex "$1"/
-						mv "$1"/latexMin.tex "$1"/Main.tex
-					elif [ "$arg2" = "-BEAMER" ];then
-						
-						cp /home/"$USER"/.initdev/sources/beamer.tex "$1"/
-						mv "$1"/beamer.tex "$1"/Main.tex
-					else
-					echo "You must set project type, please check the help : initdev -help";					
-				fi
-				if [ "$arg3" = "-GPL" ];then
+cp /home/"$USER"/.initdev/sources/beamer.tex "$1"/
+mv "$1"/beamer.tex "$1"/Main.tex
+;;
+*)
+echo "You must set project type, please check the help : initdev -help"
+;;					
+esac 
+case "$ar3" in 
+-GPL)
 					cp /home/"$USER"/.initdev/licenses/GPL "$1"/
 					mv "$1"/GPL "$1"/LICENSE
-					touch "$1"/Makefile ;
-					elif [ "$arg3" = "-MIT" ];then
+					touch "$1"/Makefile 
+;;
+-MIT)
 						cp /home/"$USER"/.initdev/licenses/MIT "$1"/
 						mv "$1"/MIT "$1"/LICENSE
-						touch "$1"/Makefile ;
-					elif [ "$arg3" = "-git" ] ;then
+						touch "$1"/Makefile 
+;;
+-git)
 
 						
-						if [ "$arg2" = "-C" ];then
+						if [ "$ar2" = "-C" ];then
 							cd "$1"/
 							git init
 							cd ../
@@ -148,7 +203,7 @@ if [ $# -eq 0 ];then  #test si le nombre d'arguments est égal à 0 , on retourn
 							touch "$1"/makefile
 							cp /home/"$USER"/.initdev/gitignores/c "$1"/
 							mv "$1"/c "$1"/.gitignores
-							elif [ "$arg2" = "-Cpp" ] || [ "$arg2" = "-C++" ];then
+							elif [ "$ar2" = "-Cpp" ] || [ "$ar2" = "-C++" ];then
 								cd "$1"/
 								git init
 								cd ../
@@ -156,7 +211,7 @@ if [ $# -eq 0 ];then  #test si le nombre d'arguments est égal à 0 , on retourn
 								touch "$1"/makefile
 								cp /home/"$USER"/.initdev/gitignores/"cpp" "$1"/
 								mv "$1"/"cpp" "$1"/.gitignore
-							elif [ "$arg2" = "-Py" ];then
+							elif [ "$ar2" = "-Py" ];then
 								cd "$1"/
 								git init
 								cd ../
@@ -164,7 +219,7 @@ if [ $# -eq 0 ];then  #test si le nombre d'arguments est égal à 0 , on retourn
 								touch "$1"/makefile
 								cp /home/"$USER"/.initdev/gitignores/python "$1"/
 								mv "$1"/python "$1"/.gitignore
-							elif [ "$arg2" = "-Latex" ] || [ "$arg2" = "-BEAMER" ];then
+							elif [ "$ar2" = "-Latex" ] || [ "$ar2" = "-BEAMER" ];then
 								cd "$1"/
 								git init
 								cd ../
@@ -174,73 +229,101 @@ if [ $# -eq 0 ];then  #test si le nombre d'arguments est égal à 0 , on retourn
 								mv "$1"/tex "$1"/.gitignore
 						
 						fi
-						else
-						echo "Uknown arguments, please check the help : initdev –help" ;
-						if [ -d $1 ]; then
-						rm -r $1
-						fi
-					fi
-					echo  $arg2 $arg3
-		elif [ $# -eq 4 ] ; then #test si le nombre d'arguments est égal à 4 , on garde toujours le meme ordre nom > langage >licence >-git dans l'algorithme sans qu'on oblige l'utilisateur a respecter l'ordre ,arg2: represente le langage , arg3: la licence , arg4: -git
-		arg2="$2"
-		arg3="$3"
-		arg4="$4"
+;;
+*)
+echo "Uknown arguments, please check the help : initdev –help" ;
+;;
+						
+esac 
+#test si le nombre d'arguments est égal à 4 , on garde toujours le meme ordre nom > langage >licence >-git dans l'algorithme sans qu'on oblige l'utilisateur a respecter l'ordre ,ar2: represente le langage , ar3: la licence , ar4: -git
+		elif [ $# -eq 4 ] ; then 
+		ar2="$2"
+		ar3="$3"
+		ar4="$4"
 		if [ "$2" = "$3" ] || [ "$2" = "$4" ] || [ "$4" = "$3" ];then
-			echo " repetitions d'arguments interdits "
+			    echo " repetitions d'arguments interdits "
 			else
-			if [ "$2" = "-GPL" ] || [ "$2" = "-MIT" ]  ;then
-				arg3="$2"
-				else
-				if [ "$2" = "-git" ];then
-					arg4="$2";
-				fi
-			fi
-		if [ "$3" = "-C" ] || [ "$3" = "-Cpp" ] || [ "$3" = "-C++" ] || [ "$3" = "-Py" ] || [ "$3" = "-Latex" ] || [ "$3" = "-BEAMER" ];then	
-			arg2="$3"
-			else
-			if [ "$3" = "-git" ];then
-				arg4="$3"
-			fi
-		fi
-		if [ "$4" = "-C" ] || [ "$4" = "-Cpp" ] || [ "$4" = "-C++" ] || [ "$4" = "-Py" ] || [ "$4" = "-Latex" ] || [ "$4" = "-BEAMER" ];then
-			arg2="$4"
-			elif [ "$4" = "-GPL" ] || [ "$4" = "-MIT" ]; then
-			arg3="$4"
-		fi
-		fi
+case "$2" in 
+-GPL) ar3="$2"
+;;
+-MIT) ar3="$2"
+;;
+-git) ar4="$2"
+;;			
+esac
+case "$3" in 
+-C) ar2="$3"
+;; 
+-Cpp) ar2="$3"
+;;
+-C++) ar2="$3"
+;;
+-Py) ar2="$3"
+;;
+-Latex) ar2="$3"
+;;
+-BEAMER) ar2="$3"
+;;
+-git)	ar4="$3"		
+esac 
+case "$4" in 
+-C) ar2="$4"
+;;
+-Cpp) ar2="$4"
+;;
+-C++) ar2="$4"
+;;
+-Py)  ar2="$4"
+;;
+-Latex) ar2="$4"
+;;
+-BEAMER) ar2="$4"
+;;
+-GPL) ar3="$4"
+;;		
+-MIT) ar3="$4"
+;;
+esac 		
+		
 		mkdir "$1" ;
-		if [ "$arg2" = "-C" ];then
+case	"$ar2"	in 
+-C)
 				
 			cp  /home/"$USER"/.initdev/sources/main.c "$1"/ 
-			elif [ "$arg2" = "-Cpp" ] || [ "$arg2" = "-C++" ];then
+			elif [ "$ar2" = "-Cpp" ] || [ "$ar2" = "-C++" ];then
 			cp /home/"$USER"/.initdev/sources/main.cpp "$1"/
-			elif [ "$arg2" = "-Py" ];then
+			elif [ "$ar2" = "-Py" ];then
 			cp /home/"$USER"/.initdev/sources/main.py "$1"/
-			elif [ "$arg2" = "-Latex" ];then
+;;
+-Latex) 
 						
 			cp /home/"$USER"/.initdev/sources/latexMin.tex "$1"/
 			mv "$1"/latexMin.tex "$1"/Main.tex
-			elif [ "$arg2" = "-BEAMER" ];then
+;;
+-BEAMER)
 						
 			cp /home/"$USER"/.initdev/sources/beamer.tex "$1"/
 			mv "$1"/beamer.tex "$1"/Main.tex
-			else
+;;
+*)
 			echo "You must set project type, please check the help : initdev -help";
-			
-		fi
-			if [ "$arg3" = "-GPL" ];then
+esac			
+case "$ar3" in 
+-GPL)			
 				cp /home/"$USER"/.initdev/licenses/GPL "$1"/
 				mv "$1"/GPL "$1"/LICENSE
-				touch "$1"/Makefile ;
-				elif [ "$arg3" = "-MIT" ];then
+				touch "$1"/Makefile
+;;
+-MIT)
 					cp /home/"$USER"/.initdev/licenses/MIT "$1"/
 					mv "$1"/MIT "$1"/LICENSE
 					touch "$1"/Makefile ;
-				else "unknown license type, project set to be without specified license ,check the help for more infos  : initdev -help" 
-			fi
-			if [ "$arg4" = "-git" ] ;then
+*)  
+echo "unknown license type, project set to be without specified license ,check the help for more infos  : initdev -help" 
+			if [ "$ar4" = "-git" ] ;then
 
-						if [ "$arg2" = "-C" ];then
+					case "$ar2" in 
+	-C)
 							cd "$1"/
 							git init
 							cd ../
@@ -248,7 +331,8 @@ if [ $# -eq 0 ];then  #test si le nombre d'arguments est égal à 0 , on retourn
 							touch "$1"/makefile
 							cp /home/"$USER"/.initdev/gitignores/c "$1"/
 							mv "$1"/c "$1"/.gitignores
-							elif [ "$arg2" = "-Cpp" ] || [ "$arg2" = "-C++" ];then
+;;
+	-Cpp) 
 								cd "$1"/
 								git init
 								cd ../
@@ -256,7 +340,17 @@ if [ $# -eq 0 ];then  #test si le nombre d'arguments est égal à 0 , on retourn
 								touch "$1"/makefile
 								cp /home/"$USER"/.initdev/gitignores/"cpp" "$1"/
 								mv "$1"/"cpp" "$1"/.gitignore
-							elif [ "$arg2" = "-Py" ];then
+;;
+         -C++)
+                                                                cd "$1"/
+								git init
+								cd ../
+								touch "$1"/LICENSE
+								touch "$1"/makefile
+								cp /home/"$USER"/.initdev/gitignores/"cpp" "$1"/
+								mv "$1"/"cpp" "$1"/.gitignore
+;;
+	  -Py)
 								cd "$1"/
 								git init
 								cd ../
@@ -264,7 +358,16 @@ if [ $# -eq 0 ];then  #test si le nombre d'arguments est égal à 0 , on retourn
 								touch "$1"/makefile
 								cp /home/"$USER"/.initdev/gitignores/python "$1"/
 								mv "$1"/python "$1"/.gitignore
-							elif [ "$arg2" = "-Latex" ] || [ "$arg2" = "-BEAMER" ];then
+;;
+	  -Latex)                                               cd "$1"/
+								git init
+								cd ../
+								touch "$1"/LICENSE
+								touch "$1"/makefile
+								cp /home/"$USER"/.initdev/gitignores/tex "$1"/
+								mv "$1"/tex "$1"/.gitignore
+;;
+          -BEAMER)
 								cd "$1"/
 								git init
 								cd ../
@@ -272,27 +375,24 @@ if [ $# -eq 0 ];then  #test si le nombre d'arguments est égal à 0 , on retourn
 								touch "$1"/makefile
 								cp /home/"$USER"/.initdev/gitignores/tex "$1"/
 								mv "$1"/tex "$1"/.gitignore
+;;
 						
-						fi
-						else
-						echo "Uknown arguments, please check the help : initdev –help" ;
-						echo "Vous avez mis 4 arguments l'un d'eux doit contenir au moins -git , voir init -help pour plus d'informations " ;
+					
+	   *)
+;;						echo "Uknown arguments, please check the help : initdev –help" ;
+esac 
 						if [ -d $1 ]; then
 							rm -r $1
 						fi
-			fi
 					
 		else 
 		echo "Beaucoup d'arguments ! ";
 				fi fi
 		
 		fi 
-else
-if [ $# -eq 0 ];then
-	echo "Expected arguments, please check the help : initdev –help" 
-else
+else 
+
 echo "trops d'arguments en entré , maximum 4 voir: initdev -help ou initdev -syntax"
-fi
 fi
 if [ $# -gt 1 ];then
 if [ "$1" = "-help" ] || [ "$1" = "-Name" ] || [ "$1" = "-args" ] || [ "$1" = "-author" ] || [ "$1" = "-Syntax" ];then
@@ -302,4 +402,3 @@ fi
 			
 	
  
-
